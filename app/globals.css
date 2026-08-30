@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #f2eee8;
+  --color-surface: #faf8f4;
+  --color-foreground: #37383a;
+  --color-muted: #657278;
+  --color-primary: #3d7f8c;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #d9d6d0;
+  --color-secondary-foreground: #37383a;
+  --color-accent: #7596a5;
+  --color-accent-foreground: #183f4b;
+  --color-border: #c7d0d0;
+
+  --color-brand-primary: #3d7f8c;
+  --color-brand-primary-dark: #183f4b;
+  --color-brand-secondary: #7596a5;
+  --color-brand-dark: #37383a;
+  --color-brand-light: #d9d6d0;
+  --color-brand-surface: #faf8f4;
+  --color-brand-muted: #657278;
+
+  --font-display: "Avenir Next", "Trebuchet MS", ui-sans-serif, sans-serif;
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 1.25rem;
+  --radius-control: 0.75rem;
+  --shadow-soft: 0 1rem 3rem rgb(24 63 75 / 0.12);
+  --shadow-card: 0 0.5rem 1.5rem rgb(55 56 58 / 0.08);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background: var(--color-background);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 20rem;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 0.1875rem solid var(--color-accent);
+    outline-offset: 0.1875rem;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
