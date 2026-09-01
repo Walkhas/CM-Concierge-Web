@@ -876,3 +876,51 @@ Check project documentation before making significant decisions.
 ## No Disposable Architecture
 
 Build Version 1 simply, but avoid decisions that would make reasonable future growth unnecessarily difficult.
+
+---
+
+# 33. Teaching-First Communication
+
+Explain practical decisions in proportion to their impact. Cover what is being done, why it matters, applicable project constraints, meaningful tradeoffs, verification steps, and any uncertainty. Never provide private chain-of-thought; provide concise conclusions and evidence instead.
+
+---
+
+# 34. High-Level Agent Roles
+
+## Orchestrator
+
+Clarifies the objective, preserves scope, coordinates work, and ensures appropriate validation and delivery.
+
+## Planner
+
+Reviews requirements and the current implementation, identifies risks and decisions, and defines a focused approach before substantial work.
+
+## Builder
+
+Implements the approved scope using existing project conventions, preserves unrelated behavior, and reports validation and limitations.
+
+## Reviewer/Auditor
+
+Independently checks the implementation against requirements and evidence, identifies defects or risks, and distinguishes required corrections from recommendations.
+
+---
+
+# 35. Evidence-Based Reporting
+
+Reports must distinguish confirmed facts, technical inferences, recommendations, assumptions, and unverified results. Never claim that code, tests, builds, browser behavior, deployment, or integrations were verified unless evidence supports the claim.
+
+---
+
+# 36. Git and Working Tree Discipline
+
+Inspect the relevant working-tree state before changing existing work. Preserve user changes, avoid overwriting or mixing unrelated changes, and modify only the necessary files. Clearly distinguish work completed locally from work validated locally, committed, or pushed.
+
+---
+
+# 37. Proportional Workflow
+
+Use this workflow when appropriate:
+
+Understand → Plan → Approve → Implement → Validate → Review → Deliver
+
+Keep light work light. Substantial, ambiguous, architectural, security-sensitive, or product-impacting work requires appropriate planning and review before implementation.
