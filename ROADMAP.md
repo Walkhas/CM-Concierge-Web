@@ -1162,11 +1162,14 @@ Version 2 should not be defined until Version 1 usage provides useful evidence.
 
 # 21. Current Project Status
 
-Project Phase: Planning / Documentation
+Project Phase: Implementation
 
 Current Version: V1
 
-Current Milestone: Milestone 0 — Project Blueprint
+Completed Implementation Baseline:
+
+- Milestones 1, 2, and 3 form the completed approved implementation baseline.
+- Milestone 3 is the most recently completed implementation milestone.
 
 Documentation:
 
@@ -1176,13 +1179,7 @@ Documentation:
 
 ## Immediate Next Step
 
-Once this roadmap is approved:
-
-1. Create the project repository.
-2. Add `PROJECT.md`, `AGENTS.md`, and `ROADMAP.md`.
-3. Begin Milestone 1 — Project Foundation.
-4. Initialize the Next.js application.
-5. Establish the bilingual architecture before building public pages.
+Begin Milestone 4 — Booking Integration.
 
 ---
 
