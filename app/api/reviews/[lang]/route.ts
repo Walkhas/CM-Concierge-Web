@@ -60,12 +60,45 @@ export async function POST(request: Request, { params }: { params: Promise<{ lan
     if (!isLocale(lang) || name.length < 2 || name.length > 80 || comment.length < 10 || comment.length > 1200 || !Number.isInteger(rating) || rating < 1 || rating > 5 || body.publicDisplayConsent !== true || body.website !== "" || (service !== null && (typeof service !== "string" || !isServiceCategory(service)))) return NextResponse.json({ error: "invalid" }, { status: 400 });
     const { url, key } = { url: process.env.NEXT_PUBLIC_SUPABASE_URL, key: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY };
     if (!url || !key) return NextResponse.json({ error: "unavailable" }, { status: 503 });
-    const response = await fetch(`${url}/rest/v1/rpc/submit_review`, { method: "POST", headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify({ p_name: name, p_rating: rating, p_comment: comment, p_service: service, p_language: lang, p_public_display_consent: true }) });
-    return response.ok ? NextResponse.json({ ok: true }) : NextResponse.json({ error: "unavailable" }, { status: 503 });
-  } catch (error) {
-    if (error instanceof RequestBodyTooLargeError) {
-      return NextResponse.json({ error: "invalid" }, { status: 413 });
-    }
-    return NextResponse.json({ error: "invalid" }, { status: 400 });
-  }
+    
+const response = await fetch(`${url}/rest/v1/rpc/submit_review`, {
+  method: "POST",
+  headers: {
+    apikey: key,
+    Authorization: `Bearer ${key}`,
+    "Content-Type": "application/json",
+    Prefer: "return=minimal",
+  },
+  body: JSON.stringify({
+    p_name: name,
+    p_rating: rating,
+    p_comment: comment,
+    p_service: service,
+    p_language: lang,
+    p_public_display_consent: true,
+  }),
+});
+
+if (!response.ok) {
+  console.error("[reviews] Supabase RPC failed", {
+    status: response.status,
+    statusText: response.statusText,
+    body: (await response.text()).slice(0, 1000),
+  });
+
+  return NextResponse.json(
+    { error: "unavailable" },
+    { status: 503 }
+  );
 }
+
+return NextResponse.json({ ok: true });
+} catch (error) {
+  if (error instanceof RequestBodyTooLargeError) {
+    return NextResponse.json({ error: "invalid" }, { status: 413 });
+  }
+
+  return NextResponse.json({ error: "invalid" }, { status: 400 });
+}
+}
+
