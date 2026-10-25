@@ -1,32 +1,69 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #f2eee8;
-  --color-surface: #faf8f4;
-  --color-foreground: #37383a;
-  --color-muted: #657278;
-  --color-primary: #3d7f8c;
+  --color-background: #d8d5d0;
+  --color-surface: #ffffff;
+  --color-foreground: #3a3a3c;
+  --color-muted: #7d929a;
+  --color-primary: #487f89;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #d9d6d0;
-  --color-secondary-foreground: #37383a;
-  --color-accent: #7596a5;
-  --color-accent-foreground: #183f4b;
-  --color-border: #c7d0d0;
+  --color-secondary: #d8d5d0;
+  --color-secondary-foreground: #3a3a3c;
+  --color-accent: #c8a98a;
+  --color-accent-foreground: #083340;
+  --color-border: #7d929a;
 
-  --color-brand-primary: #3d7f8c;
-  --color-brand-primary-dark: #183f4b;
-  --color-brand-secondary: #7596a5;
-  --color-brand-dark: #37383a;
-  --color-brand-light: #d9d6d0;
-  --color-brand-surface: #faf8f4;
-  --color-brand-muted: #657278;
+  --color-brand-deep: #083340;
+  --color-brand-deep-rgb: 8 51 64;
+  --color-brand-primary: #487f89;
+  --color-brand-primary-dark: #083340;
+  --color-brand-secondary: #7d929a;
+  --color-brand-dark: #3a3a3c;
+  --color-brand-light: #d8d5d0;
+  --color-brand-surface: #ffffff;
+  --color-brand-muted: #7d929a;
+  --color-accent-sand: #c8a98a;
 
-  --font-display: "Avenir Next", "Trebuchet MS", ui-sans-serif, sans-serif;
-  --font-sans: ui-sans-serif, system-ui, sans-serif;
-  --radius-card: 1.25rem;
-  --radius-control: 0.75rem;
-  --shadow-soft: 0 1rem 3rem rgb(24 63 75 / 0.12);
-  --shadow-card: 0 0.5rem 1.5rem rgb(55 56 58 / 0.08);
+  --font-display: var(--font-dm-serif-display), Georgia, serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --spacing-section: 4rem;
+  --spacing-section-lg: 5rem;
+  --radius-card: 0.75rem;
+  --radius-control: 0.5rem;
+  --shadow-soft: 0 1rem 3rem rgb(8 51 64 / 0.12);
+  --shadow-card: 0 0.25rem 1rem rgb(58 58 60 / 0.06);
+  --shadow-card-hover: 0 0.5rem 1.25rem rgb(58 58 60 / 0.1);
+}
+
+@layer components {
+  .hero-image-integrated {
+    isolation: isolate;
+  }
+
+  @media (min-width: 64rem) {
+    .hero-image-integrated::after {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        90deg,
+        rgb(var(--color-brand-deep-rgb) / 0.98) 0%,
+        rgb(var(--color-brand-deep-rgb) / 0.9) 14%,
+        rgb(var(--color-brand-deep-rgb) / 0.56) 36%,
+        rgb(var(--color-brand-deep-rgb) / 0.2) 62%,
+        transparent 88%
+      );
+      content: "";
+      pointer-events: none;
+    }
+
+    @supports ((mask-image: linear-gradient(90deg, transparent, black))) {
+      .hero-image-integrated {
+        mask-image: linear-gradient(90deg, transparent 0%, black 30%, black 100%);
+        mask-mode: alpha;
+      }
+    }
+  }
 }
 
 @layer base {

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import logo from "@/assets/C&M-Logo-clear.png";
 import type { Dictionary } from "@/content/types";
 import type { Locale } from "@/lib/i18n/config";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -12,7 +13,7 @@ export function SiteHeader({ locale, content }: { locale: Locale; content: Dicti
     <header className="border-b border-border bg-brand-surface/95">
       <Container className="flex min-h-20 items-center justify-between gap-4">
         <Link aria-label={content.homeLabel} className="shrink-0" href={`/${locale}`}>
-          <Image alt="C&M Concierge" className="h-14 w-14 rounded-full object-cover" height={1600} src="/brand/logo.jpeg" width={1600} />
+          <Image alt="C&M Concierge" className="h-14 w-auto md:h-16" height={1600} src={logo} width={1600} />
         </Link>
         <details className="relative md:hidden">
           <summary className="flex min-h-11 cursor-pointer list-none items-center rounded-control border border-primary px-4 text-sm font-semibold text-brand-primary-dark">{content.menuLabel}</summary>
