@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import logo from "@/assets/C&M-Logo-clear.png";
 import { site } from "@/content/site";
 import type { Dictionary } from "@/content/types";
 import type { Locale } from "@/lib/i18n/config";
@@ -8,11 +9,11 @@ import { LanguageSwitcher } from "./language-switcher";
 
 export function SiteFooter({ locale, content }: { locale: Locale; content: Dictionary["footer"] }) {
   return (
-    <footer className="bg-brand-primary-dark py-14 text-brand-light" id="contact">
+    <footer className="bg-brand-primary-dark py-14 text-brand-light">
       <Container>
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <Image alt="C&M Concierge" className="h-20 w-20 rounded-full object-cover" height={1600} src="/brand/logo.jpeg" width={1600} />
+            <Image alt="C&M Concierge" className="h-20 w-auto md:h-24" height={1600} src={logo} width={1600} />
             <p className="mt-5 max-w-sm text-base leading-relaxed">{content.description}</p>
           </div>
           <div>

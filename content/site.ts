@@ -6,5 +6,5 @@ export const site = {
     facebookHref: "https://www.facebook.com/profile.php?id=61577755905482",
     location: "Mérida, Yucatán, México"
   },
-  consultationHref: "#contact"
+  consultationEventUrl: "https://cal.com/cmconcierge/30min"
 } as const;

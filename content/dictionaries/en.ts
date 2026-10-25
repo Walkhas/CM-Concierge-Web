@@ -1,5 +1,6 @@
 import { site } from "@/content/site";
 import type { Dictionary } from "@/content/types";
+import { consultationPathByLocale, reviewPathByLocale } from "@/lib/i18n/routes";
 
 export const en: Dictionary = {
   metadata: {
@@ -8,7 +9,7 @@ export const en: Dictionary = {
   },
   header: {
     nav: { about: "What We Do", services: "Services", process: "How It Works", contact: "Contact" },
-    consultation: { label: "Free Consultation", href: site.consultationHref },
+    consultation: { label: "Free Consultation", href: consultationPathByLocale.en },
     languageLabel: "Choose language",
     menuLabel: "Menu",
     navigationLabel: "Main navigation",
@@ -18,16 +19,23 @@ export const en: Dictionary = {
     eyebrow: "Personal assistance in Mérida",
     title: "More time for what matters to you.",
     description: "C&M Concierge helps you coordinate everyday needs, local services, and meaningful plans with thoughtful, personalized support.",
-    primary: { label: "Start a Free Consultation", href: site.consultationHref },
+    primary: { label: "Start a Free Consultation", href: consultationPathByLocale.en },
     secondary: { label: "Explore Our Services", href: "#services" },
     imageAlt: "Aerial view of Mérida's historic center at dusk"
   },
+  trustValues: [
+    { title: "Personalized attention", description: "Support shaped around your situation." },
+    { title: "Local expertise", description: "Practical knowledge of Mérida and its rhythms." },
+    { title: "Bilingual service", description: "Clear support in English or Spanish." },
+    { title: "Tailored solutions", description: "A thoughtful place to start with your needs." }
+  ],
   about: {
     eyebrow: "A helping hand, thoughtfully organized",
     title: "You do not need to have everything figured out.",
     description: "Tell us what you need, and we can talk through the best way to help. Our concierge approach brings local knowledge, calm coordination, and personal attention to everyday situations.",
     imageAlt: "Visitors enjoying a colorful cultural evening in Mérida",
-    points: ["Save time and reduce stress", "Coordinate practical everyday needs", "Receive support shaped around your situation"]
+    points: ["Save time and reduce stress", "Coordinate practical everyday needs", "Receive support shaped around your situation"],
+    consultation: { label: "Start a Free Consultation", href: consultationPathByLocale.en }
   },
   services: {
     eyebrow: "Ways we can help",
@@ -60,14 +68,24 @@ export const en: Dictionary = {
     eyebrow: "Trust takes time",
     title: "A thoughtful experience starts here.",
     description: "We are building a place for approved client experiences to be shared. In the meantime, learn more about how we can help during a free consultation.",
-    empty: "Approved client reviews will appear here as they become available."
+    empty: "Approved client reviews will appear here as they become available.", leaveReview: { label: "Leave a review", href: reviewPathByLocale.en }, reviews: { name: "", service: "" , rating: "" }
   },
-  finalCta: {
+  reviews: { eyebrow: "Share your experience", title: "Leave a review", description: "Your review will be reviewed before it appears publicly.", nameLabel: "Name", ratingLabel: "Rating", ratingPlaceholder: "Choose a rating", serviceLabel: "Service category (optional)", servicePlaceholder: "Select a category", commentLabel: "Your review", consentLabel: "I consent to this review being displayed publicly if approved.", consentVersion: "Consent version 2026-10-24", submit: "Submit review", loading: "Submitting…", success: "Thank you. Your review is pending approval.", error: "We could not submit your review. Please check your entries and try again." },
+  booking: {
     eyebrow: "Let us talk",
     title: "Not sure what kind of help you need? Start there.",
     description: "Your free consultation is a relaxed first conversation about your needs, your plans, and how C&M Concierge may be able to help.",
-    button: { label: "Talk With C&M Concierge", href: site.consultationHref }
+    loading: "Loading the consultation calendar…",
+    error: "The consultation calendar could not be loaded right now.",
+    fallback: "You can still choose a time directly through Cal.com:",
+     fallbackLabel: "Open Cal.com consultation booking",
+     intro: "Choose a convenient time for a free first conversation. You do not need to know exactly which service you need before booking.",
+    whatToExpectTitle: "What to expect",
+    whatToExpect: ["A relaxed conversation about your needs and plans.", "Space to ask questions and share practical details.", "A clearer idea of how C&M Concierge may be able to help."],
+    afterBookingTitle: "After booking",
+    afterBooking: "You will receive a confirmation with the meeting details. If your plans change, Cal.com will also provide options to reschedule or cancel."
   },
+  finalCta: { eyebrow: "Ready when you are", title: "Take the first step with a free consultation.", description: "Bring your questions, plans, or simply the situation you would like to talk through.", button: { label: "Book a Free Consultation", href: consultationPathByLocale.en } },
   footer: {
     description: "Personalized assistance and local coordination in Mérida, Yucatán.",
     contactLabel: "Contact",

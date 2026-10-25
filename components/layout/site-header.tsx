@@ -21,7 +21,7 @@ export function SiteHeader({ locale, content }: { locale: Locale; content: Dicti
             <Link className="rounded-control px-3 py-2 hover:bg-secondary" href="#about">{content.nav.about}</Link>
             <Link className="rounded-control px-3 py-2 hover:bg-secondary" href="#services">{content.nav.services}</Link>
             <Link className="rounded-control px-3 py-2 hover:bg-secondary" href="#process">{content.nav.process}</Link>
-            <Link className="rounded-control px-3 py-2 hover:bg-secondary" href="#contact">{content.nav.contact}</Link>
+            <Link className="rounded-control px-3 py-2 hover:bg-secondary" href={content.consultation.href}>{content.nav.contact}</Link>
             <LanguageSwitcher label={content.languageLabel} locale={locale} />
             <ButtonLink href={content.consultation.href}>{content.consultation.label}</ButtonLink>
           </nav>
@@ -31,7 +31,7 @@ export function SiteHeader({ locale, content }: { locale: Locale; content: Dicti
             <Link className="hover:text-brand-primary" href="#about">{content.nav.about}</Link>
             <Link className="hover:text-brand-primary" href="#services">{content.nav.services}</Link>
             <Link className="hover:text-brand-primary" href="#process">{content.nav.process}</Link>
-            <Link className="hover:text-brand-primary" href="#contact">{content.nav.contact}</Link>
+            <Link className="hover:text-brand-primary" href={content.consultation.href}>{content.nav.contact}</Link>
           </nav>
           <LanguageSwitcher label={content.languageLabel} locale={locale} />
           <ButtonLink className="whitespace-nowrap" href={content.consultation.href}>{content.consultation.label}</ButtonLink>
